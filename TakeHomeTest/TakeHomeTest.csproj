@@ -131,6 +131,8 @@
     <Compile Include="Models\PeopleContext.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seeder\PeopleProducer.cs" />
+    <Compile Include="Seeder\PeopleXMLParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\People.mdf" />
@@ -157,6 +159,39 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Seeder\people.xml" />
+    <Content Include="Seeder\Pictures\f4002.jpg" />
+    <Content Include="Seeder\Pictures\f4005.jpg" />
+    <Content Include="Seeder\Pictures\f4006.jpg" />
+    <Content Include="Seeder\Pictures\f4007s.jpg" />
+    <Content Include="Seeder\Pictures\f4008s.jpg" />
+    <Content Include="Seeder\Pictures\f4009s.jpg" />
+    <Content Include="Seeder\Pictures\f4010s.jpg" />
+    <Content Include="Seeder\Pictures\f4016s.jpg" />
+    <Content Include="Seeder\Pictures\f4017.jpg" />
+    <Content Include="Seeder\Pictures\f4017s.jpg" />
+    <Content Include="Seeder\Pictures\f4021s.jpg" />
+    <Content Include="Seeder\Pictures\f4026s.jpg" />
+    <Content Include="Seeder\Pictures\f4027s.jpg" />
+    <Content Include="Seeder\Pictures\f4029s.jpg" />
+    <Content Include="Seeder\Pictures\f4030s.jpg" />
+    <Content Include="Seeder\Pictures\m4001s.jpg" />
+    <Content Include="Seeder\Pictures\m4002s.jpg" />
+    <Content Include="Seeder\Pictures\m4003_2.jpg" />
+    <Content Include="Seeder\Pictures\m4006s.jpg" />
+    <Content Include="Seeder\Pictures\m4010s.jpg" />
+    <Content Include="Seeder\Pictures\m4011s.jpg" />
+    <Content Include="Seeder\Pictures\m4012s.jpg" />
+    <Content Include="Seeder\Pictures\m4021s.jpg" />
+    <Content Include="Seeder\Pictures\m4024s.jpg" />
+    <Content Include="Seeder\Pictures\m4034s.jpg" />
+    <Content Include="Seeder\Pictures\m4035s.jpg" />
+    <Content Include="Seeder\Pictures\m4042s.jpg" />
+    <Content Include="Seeder\Pictures\m4043s.jpg" />
+    <Content Include="Seeder\Pictures\m4066.jpg" />
+    <Content Include="Seeder\Pictures\m4067s.jpg" />
+    <Content Include="Seeder\Pictures\m4068.jpg" />
+    <Content Include="Seeder\Pictures\m4077s.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
