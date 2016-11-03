@@ -3,28 +3,36 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
-@Html.Partial("_personCard", Model.ToArray()[0]) 
+<script src="~/Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript">
-	$(function () {
+	$(document).ready(function () {
 		$("#searchButton").click(function () {
-			var person = {FirstName: "Me", LastName: "Mine"}
-			$.ajax({
-				type:"POST",
-				contentType:"application/json; charset=utf-8",
-				data:"{person:" + JSON.stringify(person)+"}",
-				url:"/Home/GetData",
-				success: function (data) {
-					alert("Person Name: " + data.FirstName + " " + data.LastName);
-				},
-				error: function (result) {
-					alert("No Results");
-				}
-			})
-		})
-	})
+			var name = $("#searchCriteria").val();
+			alert("name is " + name);
+			if (name) {
+				alert("name is valid");
 
-	$(function () {
+				$.ajax({
+					type: "POST",
+					contentType: "application/json; charset=utf-8",
+					dataType: "json",
+					data: JSON.toString(name),
+					url: "/Home/GetData",
+					success: OnSuccess,
+					error: OnError
+				});
+			}
+			function OnSuccess(data) {
+				$("#results").html(Html.Partial("_personsSearchResults", Model.ToArray()));
+			}
+			function OnError(data) {
+				alert("ERROR");
+				$("#results").html("No Results");
+			}
+		})
+	});
+
+	$(document).ready(function () {
 		$("#createButton").click(function () {
 			var person = { FirstName: "Me", LastName: "Mine" }
 			$.ajax({
@@ -40,8 +48,19 @@
 				}
 			})
 		})
-	})
+	});
 </script>
+
+<div id="searchArea">
+	<h4>Search Database by Name</h4>
+	<button id="searchButton">Search</button>
+	<input id="searchCriteria"/>
+</div>
+<div id="results" style="color:#A0A0A0">
+	Results Will Show Here
+</div>
+@Html.Partial("_personCard", Model.ToArray()[0]) 
+
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Services;
+using System.Web.Services;
 using TakeHomeTest.Models;
 
 namespace TakeHomeTest.Controllers {
@@ -25,8 +27,11 @@ namespace TakeHomeTest.Controllers {
 			return View();
 		}
 
-		public JsonResult GetData(Person person) {
-			return Json(person, JsonRequestBehavior.AllowGet);
+		[WebMethod]
+		[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+		public JsonResult GetData(object name) {
+			var persons = _db.People.Where(p => p.FirstName.Contains((string)name) || p.LastName.Contains((string)name));
+			return Json(persons, JsonRequestBehavior.AllowGet);
 		}
 
 		// GET: Home
