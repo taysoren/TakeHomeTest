@@ -9,7 +9,7 @@ namespace TakeHomeTest.Controllers {
 	public class HomeController : Controller {
 		
 		#region Data Members
-		private PeopleContext _db = new PeopleContext();
+		public PeopleContext _db = new PeopleContext();
 		#endregion
 
 		#region Pages

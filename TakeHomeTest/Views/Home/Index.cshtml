@@ -1,8 +1,10 @@
-﻿@{
+﻿@model IEnumerable<TakeHomeTest.Models.Person>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-@Html.Partial("_creatonView") 
+@Html.Partial("_personCard", Model.ToArray()[0]) 
 <script type="text/javascript">
 	$(function () {
 		$("#searchButton").click(function () {
