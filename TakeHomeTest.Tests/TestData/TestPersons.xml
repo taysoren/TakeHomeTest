@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<people>
+	<person>
+		<FirstName>James</FirstName>
+		<LastName>Butt</LastName>
+		<Address>6649 N Blue Gum St</Address>
+		<City>New Orleans</City>
+		<County>Orleans</County>
+		<State>LA</State>
+		<Zip>70116</Zip>
+		<PhoneNumber>504-621-8927</PhoneNumber>
+		<Email>jbutt@gmail.com</Email>
+	</person>
+	<person>
+		<FirstName>Josephine</FirstName>
+		<LastName>Darakjy</LastName>
+		<Address>4 B Blue Ridge Blvd</Address>
+		<City>Brighton</City>
+		<County>Livingston</County>
+		<State>MI</State>
+		<Zip>48116</Zip>
+		<PhoneNumber>810-292-9388</PhoneNumber>
+		<Email>josephine_darakjy@darakjy.org</Email>
+	</person>
+	<person>
+		<FirstName>Art</FirstName>
+		<LastName>Venere</LastName>
+		<Address>8 W Cerritos Ave #54</Address>
+		<City>Bridgeport</City>
+		<County>Gloucester</County>
+		<State>NJ</State>
+		<Zip>8014</Zip>
+		<PhoneNumber>856-636-8749</PhoneNumber>
+		<Email>art@venere.org</Email>
+	</person>
+	<person>
+		<FirstName>Lenna</FirstName>
+		<LastName>Paprocki</LastName>
+		<Address>639 Main St</Address>
+		<City>Anchorage</City>
+		<County>Anchorage</County>
+		<State>AK</State>
+		<Zip>99501</Zip>
+		<PhoneNumber>907-385-4412</PhoneNumber>
+		<Email>lpaprocki@hotmail.com</Email>
+	</person>
+	<person>
+		<FirstName>Donette</FirstName>
+		<LastName>Foller</LastName>
+		<Address>34 Center St</Address>
+		<City>Hamilton</City>
+		<County>Butler</County>
+		<State>OH</State>
+		<Zip>45011</Zip>
+		<PhoneNumber>513-570-1893</PhoneNumber>
+		<Email>donette.foller@cox.net</Email>
+	</person>
+	<person>
+		<FirstName>Simona</FirstName>
+		<LastName>Morasca</LastName>
+		<Address>3 Mcauley Dr</Address>
+		<City>Ashland</City>
+		<County>Ashland</County>
+		<State>OH</State>
+		<Zip>44805</Zip>
+		<PhoneNumber>419-503-2484</PhoneNumber>
+		<Email>simona@morasca.com</Email>
+	</person>
+	<person>
+		<FirstName>Mitsue</FirstName>
+		<LastName>Tollner</LastName>
+		<Address>7 Eads St</Address>
+		<City>Chicago</City>
+		<County>Cook</County>
+		<State>IL</State>
+		<Zip>60632</Zip>
+		<PhoneNumber>773-573-6914</PhoneNumber>
+		<Email>mitsue_tollner@yahoo.com</Email>
+	</person>
+	<person>
+		<FirstName>Leota</FirstName>
+		<LastName>Dilliard</LastName>
+		<Address>7 W Jackson Blvd</Address>
+		<City>San Jose</City>
+		<County>Santa Clara</County>
+		<State>CA</State>
+		<Zip>95111</Zip>
+		<PhoneNumber>408-752-3500</PhoneNumber>
+		<Email>leota@hotmail.com</Email>
+	</person>
+	<person>
+		<FirstName>Sage</FirstName>
+		<LastName>Wieser</LastName>
+		<Address>5 Boston Ave #88</Address>
+		<City>Sioux Falls</City>
+		<County>Minnehaha</County>
+		<State>SD</State>
+		<Zip>57105</Zip>
+		<PhoneNumber>605-414-2147</PhoneNumber>
+		<Email>sage_wieser@cox.net</Email>
+	</person>
+	<person>
+		<FirstName>Kris</FirstName>
+		<LastName>Marrier</LastName>
+		<Address>228 Runamuck Pl #2808</Address>
+		<City>Baltimore</City>
+		<County>Baltimore City</County>
+		<State>MD</State>
+		<Zip>21224</Zip>
+		<PhoneNumber>410-655-8723</PhoneNumber>
+		<Email>kris@gmail.com</Email>
+	</person>
+	<person>
+		<FirstName>Minna</FirstName>
+		<LastName>Amigon</LastName>
+		<Address>2371 Jerrold Ave</Address>
+		<City>Kulpsville</City>
+		<County>Montgomery</County>
+		<State>PA</State>
+		<Zip>19443</Zip>
+		<PhoneNumber>215-874-1229</PhoneNumber>
+		<Email>minna_amigon@yahoo.com</Email>
+	</person>
+	<person>
+		<FirstName>Abel</FirstName>
+		<LastName>Maclead</LastName>
+		<Address>37275 St  Rt 17m M</Address>
+		<City>Middle Island</City>
+		<County>Suffolk</County>
+		<State>NY</State>
+		<Zip>11953</Zip>
+		<PhoneNumber>631-335-3414</PhoneNumber>
+		<Email>amaclead@gmail.com</Email>
+	</person>
+	<person>
+		<FirstName>Minna</FirstName>
+		<LastName>Amigon</LastName>
+		<Address>2371 Jerrold Ave</Address>
+		<City>Kulpsville</City>
+		<County>Montgomery</County>
+		<State>PA</State>
+		<Zip>19443</Zip>
+		<PhoneNumber>215-874-1229</PhoneNumber>
+		<Email>minna_amigon@yahoo.com</Email>
+	</person>
+	<person>
+		<FirstName>Abel</FirstName>
+		<LastName>Maclead</LastName>
+		<Address>37275 St  Rt 17m M</Address>
+		<City>Middle Island</City>
+		<County>Suffolk</County>
+		<State>NY</State>
+		<Zip>11953</Zip>
+		<PhoneNumber>631-335-3414</PhoneNumber>
+		<Email>amaclead@gmail.com</Email>
+	</person>
+</people>
