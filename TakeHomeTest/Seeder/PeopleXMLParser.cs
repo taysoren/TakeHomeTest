@@ -10,6 +10,7 @@ using TakeHomeTest.Models;
 
 namespace TakeHomeTest.Seeder {
 	public static class PeopleXMLParser {
+
 		public static People ParseXML(string xmlpath) {
 			//var files = Directory.GetFiles("TestData");
 			if(!File.Exists(xmlpath)) {

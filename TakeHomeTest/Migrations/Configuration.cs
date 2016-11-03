@@ -18,6 +18,7 @@ namespace TakeHomeTest.Migrations {
 		protected override void Seed(TakeHomeTest.Models.PeopleContext context) {
 			People people = PeopleProducer.ProducePeople(MapPath("~/Seeder/peopleList.xml"));
 			if(people != null) {
+				PeopleProducer.GiveInterests(ref people);
 				PeopleProducer.AppendRandomImagesToPeople(ref people, MapPath("~/Seeder/Pictures"));
 				context.People.AddOrUpdate(people.ToArray());
 			}

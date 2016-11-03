@@ -2,6 +2,45 @@
     ViewBag.Title = "Home Page";
 }
 
+@Html.Partial("_creatonView") 
+<script type="text/javascript">
+	$(function () {
+		$("#searchButton").click(function () {
+			var person = {FirstName: "Me", LastName: "Mine"}
+			$.ajax({
+				type:"POST",
+				contentType:"application/json; charset=utf-8",
+				data:"{person:" + JSON.stringify(person)+"}",
+				url:"/Home/GetData",
+				success: function (data) {
+					alert("Person Name: " + data.FirstName + " " + data.LastName);
+				},
+				error: function (result) {
+					alert("No Results");
+				}
+			})
+		})
+	})
+
+	$(function () {
+		$("#createButton").click(function () {
+			var person = { FirstName: "Me", LastName: "Mine" }
+			$.ajax({
+				type: "POST",
+				contentType: "application/json; charset=utf-8",
+				data: "{person:" + JSON.stringify(person) + "}",
+				url: "/Home/GetData",
+				success: function (data) {
+					alert("Person Name: " + data.FirstName + " " + data.LastName);
+				},
+				error: function (result) {
+					alert("No Results");
+				}
+			})
+		})
+	})
+</script>
+
 <div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
