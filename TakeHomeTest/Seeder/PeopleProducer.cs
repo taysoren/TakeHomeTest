@@ -7,17 +7,19 @@ using TakeHomeTest.Models;
 
 namespace TakeHomeTest.Seeder {
 	public static class PeopleProducer {
-		public static People ProducePeople() {
+		public static People ProducePeople(string xmlPath) {
+			return PeopleXMLParser.ParseXML(xmlPath);
+		}
 
-			People people = PeopleXMLParser.ParseXML(@"peopleList.xml");
+		public static void AppendRandomImagesToPeople(ref People people, string folderPath) {
 			if(people != null) {
 				string[] imagePaths = new string[0];
 				try {
-					imagePaths = Directory.GetFiles(@"Pictures");
+					imagePaths = Directory.GetFiles(folderPath);
 				}
 				catch(Exception ex) {
 					Console.WriteLine(string.Format("Error getting images: {0}", ex.Message));
-					return null;
+					throw new Exception(ex.Message);
 				}
 				var rand = new Random();
 				if(imagePaths != null && imagePaths.Length > 0) {
@@ -27,7 +29,6 @@ namespace TakeHomeTest.Seeder {
 					}
 				}
 			}
-			return people;
 		}
 	}
 

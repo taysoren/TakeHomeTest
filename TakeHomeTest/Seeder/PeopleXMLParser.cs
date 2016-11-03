@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Xml.Linq;
 using System.Xml.Serialization;
@@ -16,13 +17,22 @@ namespace TakeHomeTest.Seeder {
 				return null;
 			}
 			try {
-				XDocument xml = new XDocument(xmlpath);
-				var persons = xml.Descendants("People").ToList();
+				XDocument xml = XDocument.Load(xmlpath);
+				int i = 0;
+				List<Person> persons = xml.Descendants("people").
+					Descendants("person").
+					Select(p => new Person(){ 
+						PersonID = i++,
+						FirstName = p.Element("FirstName").Value,
+						LastName = p.Element("LastName").Value,
+						Age = int.Parse(p.Element("Age").Value),
+						Address = string.Format("{0}:{1}, {2} {3}", p.Element("Address").Value, p.Element("City").Value, p.Element("State").Value, p.Element("Zip").Value),
+						PhoneNumber = p.Element("PhoneNumber").Value,
+						Email = p.Element("Email").Value,
+					}).ToList();
 
-				XmlSerializer serializer = new XmlSerializer(typeof(People));
-				FileStream stream = new FileStream(xmlpath, FileMode.Open, FileAccess.Read);
-				People people = (People)serializer.Deserialize(stream);
-				stream.Close();
+				People people = new People();
+				people.AddRange(persons);
 				return people;
 			}
 			catch(InvalidOperationException ex) {

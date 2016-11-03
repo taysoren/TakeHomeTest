@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <people>
 	<person>
 		<FirstName>James</FirstName>
@@ -10,6 +10,7 @@
 		<Zip>70116</Zip>
 		<PhoneNumber>504-621-8927</PhoneNumber>
 		<Email>jbutt@gmail.com</Email>
+		<Age>47</Age>
 	</person>
 	<person>
 		<FirstName>Josephine</FirstName>
@@ -21,6 +22,7 @@
 		<Zip>48116</Zip>
 		<PhoneNumber>810-292-9388</PhoneNumber>
 		<Email>josephine_darakjy@darakjy.org</Email>
+		<Age>33</Age>
 	</person>
 	<person>
 		<FirstName>Art</FirstName>
@@ -32,6 +34,7 @@
 		<Zip>8014</Zip>
 		<PhoneNumber>856-636-8749</PhoneNumber>
 		<Email>art@venere.org</Email>
+		<Age>33</Age>
 	</person>
 	<person>
 		<FirstName>Lenna</FirstName>
@@ -43,6 +46,7 @@
 		<Zip>99501</Zip>
 		<PhoneNumber>907-385-4412</PhoneNumber>
 		<Email>lpaprocki@hotmail.com</Email>
+		<Age>32</Age>
 	</person>
 	<person>
 		<FirstName>Donette</FirstName>
@@ -54,6 +58,7 @@
 		<Zip>45011</Zip>
 		<PhoneNumber>513-570-1893</PhoneNumber>
 		<Email>donette.foller@cox.net</Email>
+		<Age>31</Age>
 	</person>
 	<person>
 		<FirstName>Simona</FirstName>
@@ -65,6 +70,7 @@
 		<Zip>44805</Zip>
 		<PhoneNumber>419-503-2484</PhoneNumber>
 		<Email>simona@morasca.com</Email>
+		<Age>32</Age>
 	</person>
 	<person>
 		<FirstName>Mitsue</FirstName>
@@ -76,6 +82,7 @@
 		<Zip>60632</Zip>
 		<PhoneNumber>773-573-6914</PhoneNumber>
 		<Email>mitsue_tollner@yahoo.com</Email>
+		<Age>42</Age>
 	</person>
 	<person>
 		<FirstName>Leota</FirstName>
@@ -87,6 +94,7 @@
 		<Zip>95111</Zip>
 		<PhoneNumber>408-752-3500</PhoneNumber>
 		<Email>leota@hotmail.com</Email>
+		<Age>47</Age>
 	</person>
 	<person>
 		<FirstName>Sage</FirstName>
@@ -98,6 +106,7 @@
 		<Zip>57105</Zip>
 		<PhoneNumber>605-414-2147</PhoneNumber>
 		<Email>sage_wieser@cox.net</Email>
+		<Age>30</Age>
 	</person>
 	<person>
 		<FirstName>Kris</FirstName>
@@ -109,6 +118,7 @@
 		<Zip>21224</Zip>
 		<PhoneNumber>410-655-8723</PhoneNumber>
 		<Email>kris@gmail.com</Email>
+		<Age>33</Age>
 	</person>
 	<person>
 		<FirstName>Minna</FirstName>
@@ -120,6 +130,7 @@
 		<Zip>19443</Zip>
 		<PhoneNumber>215-874-1229</PhoneNumber>
 		<Email>minna_amigon@yahoo.com</Email>
+		<Age>30</Age>
 	</person>
 	<person>
 		<FirstName>Abel</FirstName>
@@ -131,6 +142,7 @@
 		<Zip>11953</Zip>
 		<PhoneNumber>631-335-3414</PhoneNumber>
 		<Email>amaclead@gmail.com</Email>
+		<Age>36</Age>
 	</person>
 	<person>
 		<FirstName>Minna</FirstName>
@@ -142,6 +154,7 @@
 		<Zip>19443</Zip>
 		<PhoneNumber>215-874-1229</PhoneNumber>
 		<Email>minna_amigon@yahoo.com</Email>
+		<Age>31</Age>
 	</person>
 	<person>
 		<FirstName>Abel</FirstName>
@@ -153,5 +166,6 @@
 		<Zip>11953</Zip>
 		<PhoneNumber>631-335-3414</PhoneNumber>
 		<Email>amaclead@gmail.com</Email>
+		<Age>33</Age>
 	</person>
 </people>

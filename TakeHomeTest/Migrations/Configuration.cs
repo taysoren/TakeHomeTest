@@ -1,35 +1,40 @@
-namespace TakeHomeTest.Migrations
-{
+namespace TakeHomeTest.Migrations {
 	using System;
 	using System.Data.Entity;
 	using System.Data.Entity.Migrations;
+	using System.IO;
 	using System.Linq;
+	using System.Reflection;
+	using System.Web;
+	using System.Web.Hosting;
 	using TakeHomeTest.Models;
 	using TakeHomeTest.Seeder;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<TakeHomeTest.Models.PeopleContext>
-    {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled = false;
-        }
+	internal sealed class Configuration : DbMigrationsConfiguration<TakeHomeTest.Models.PeopleContext> {
+		public Configuration() {
+			AutomaticMigrationsEnabled = false;
+		}
 
-        protected override void Seed(TakeHomeTest.Models.PeopleContext context)
-        {
-			People people = PeopleProducer.ProducePeople();
-			context.People.AddOrUpdate(people.ToArray());
-            //  This method will be called after migrating to the latest version.
+		protected override void Seed(TakeHomeTest.Models.PeopleContext context) {
+			People people = PeopleProducer.ProducePeople(MapPath("~/Seeder/peopleList.xml"));
+			if(people != null) {
+				PeopleProducer.AppendRandomImagesToPeople(ref people, MapPath("~/Seeder/Pictures"));
+				context.People.AddOrUpdate(people.ToArray());
+			}
+			else {
+				throw new Exception(MapPath("~/Seeder/peopleList.xml"));
+			}
+		}
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-        }
-    }
+		private string MapPath(string seedFile) {
+			if(HttpContext.Current != null)
+				return HttpUtility.UrlDecode(HostingEnvironment.MapPath(seedFile));
+
+			var absolutePath = new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath;
+			var directoryName = Path.GetDirectoryName(absolutePath);
+			var path = Path.Combine(directoryName, ".." + seedFile.TrimStart('~').Replace('/', '\\'));
+
+			return HttpUtility.UrlDecode(path);
+		}
+	}
 }
