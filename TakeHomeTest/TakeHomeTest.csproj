@@ -278,6 +278,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_creationView.cshtml" />
     <Content Include="Views\Shared\_personCard.cshtml" />
+    <Content Include="Views\Shared\_peopleView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611021208531_InitialMigration.resx">

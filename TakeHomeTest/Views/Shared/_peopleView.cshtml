@@ -1,0 +1,6 @@
+﻿@model IEnumerable<TakeHomeTest.Models.Person>
+<div class="peopleList">
+	@foreach (var item in Model) {
+		@Html.Partial("_personCard", item);
+	}
+</div>

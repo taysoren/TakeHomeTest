@@ -1,5 +1,5 @@
 ﻿var Home = {}
-Home.SearchButtonClick = function () {
+Home.SearchButtonClick = function() {
 	var name = $("#searchCriteria").val();
 	if (name) {
 		alert("name is valid: " + name);
@@ -15,14 +15,12 @@ Home.SearchButtonClick = function () {
 		});
 	}
 	function OnSuccess(data) {
-		$("#results").html(JSON.stringify(data));
+		$("#results").html("");
 		data = JSON.parse(data);
 		data.length;
 		for (var i = 0; i < data.length; i++) {
-			@Html.Partial("_personCard", Model.ToArray()[0])
-			$("#results").append()
+			$("#results").append(data[i].FirstName);
 		}
-		//Html.Partial("_personsSearchResults", Model.ToArray()));
 	}
 	function OnError(data) {
 		alert("ERROR");
@@ -63,6 +61,6 @@ Home.CreateButtonClick = function () {
 };
 
 $(document).ready(function () {
-	//$(".searchButton").click(Home.SearchButtonClick);
+	$(".searchButton").click(Home.SearchButtonClick);
 	$(".createButton").click(Home.CreateButtonClick);
 });

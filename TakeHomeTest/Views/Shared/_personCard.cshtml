@@ -1,14 +1,14 @@
 ﻿@model TakeHomeTest.Models.Person
 
-<div id="PersonCardDiv" style="border: solid 2px #E0E0E0; margin: 8px; padding:5px; width: 500px">
+<div id="PersonCardDiv" style="border: solid 2px #E0E0E0; margin: 8px; padding:5px; width: 420px;height:420px;float:left">
 	<h2 align="center">
 		@{
 			var personHeader = string.Format("{0} {1}, {2}", Model.FirstName, Model.LastName, Model.Age);
 		}
 		@Html.DisplayFor(model => personHeader)
 	</h2>
-	<div class="info" id="contactInfo" style="align-content:space-between;margin:10px">
-		<table cellpadding="20" align="center">
+	<div class="info" id="contactInfo" style="align-content:space-between;margin:5px">
+		<table cellpadding="5" align="center">
 			<tr valign ="center">
 				<td>
 					@{
@@ -27,28 +27,24 @@
 			</tr>
 		</table>
 	</div>
-	<div class ="info" id="otherInfo" style="align-content:space-between;margin:10px">
-		<table cellpadding="20" align="center">
+	<div class ="info" id="otherInfo" style="align-content:space-between;margin:5px">
+		<table cellpadding="5" align="center">
 			<tr>
 				<td valign="top">
 					<h4>Interests:</h4>
 					@{
 						var interests = Model.Interests.Replace(",", ", ");
 					}
-					@Html.DisplayFor(model => interests);
+					@Html.DisplayFor(model => interests)
 				</td>
 				<td>
 					@{
 						var base64 = Convert.ToBase64String(Model.Picture);
 						var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
 					}
-					<img id="personPic" width="256" src="@imgSrc" style="border:solid 2px grey;margin: 2px"/>
+					<img id="personPic" width="196" src="@imgSrc" style="border:solid 2px grey;margin: 2px"/>
 				</td>
 			</tr>
 		</table>
 	</div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PersonID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

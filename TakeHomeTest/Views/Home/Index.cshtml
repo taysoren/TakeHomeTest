@@ -4,38 +4,6 @@
     ViewBag.Title = "Home Page";
 }
 <script src="~/Scripts/jquery-1.10.2.js">
-	$(document).ready(function () {
-		$("#searchbutton").click(function() {
-			var name = $("#searchCriteria").val();
-			if (name) {
-				alert("name is valid: " + name);
-
-				$.ajax({
-					type: "GET",
-					contentType: "application/json; charset=utf-8",
-					dataType: "json",
-					data: name,
-					url: "/Home/GetData?name="+name,
-					success: OnSuccess,
-					error: OnError
-				});
-			}
-			function OnSuccess(data) {
-				$("#results").html(JSON.stringify(data));
-				data = JSON.parse(data);
-				data.length;
-				for (var i = 0; i < data.length; i++) {
-					@Html.Partial("_personCard", Model.ToArray()[0])
-					$("#results").append()
-				}
-				//Html.Partial("_personsSearchResults", Model.ToArray()));
-			}
-			function OnError(data) {
-				alert("ERROR");
-				$("#results").html("No Results");
-			}
-		})
-	});
 </script>
 
 
@@ -47,5 +15,6 @@
 <div id="results" style="color:#A0A0A0:">
 	Results Will Show Here
 </div>
-@Html.Partial("_personCard", Model.ToArray()[0]) 
+
+@Html.Partial("_peopleView", Model.ToArray()) 
 <script src="~/Scripts/Home.js"></script>
