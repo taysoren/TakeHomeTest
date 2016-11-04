@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +8,21 @@ namespace TakeHomeTest.Models {
 	public class Person {
 		#region ctor
 		public Person() { }
+
+		public Person(string json) {
+			JObject j = JObject.Parse(json);
+			//JToken jid = j["PersonID"];
+			PersonID = (int)j["PersonID"];
+			FirstName = (string)j["FirstName"];
+			LastName = (string)j["LastName"];
+			Age = (int)j["Age"];
+			Address = (string)j["Address"];
+			PhoneNumber = (string)j["PhoneNumber"];
+			Email = (string)j["Email"];
+			Interests = (string)j["Interests"];
+			Picture = (byte[])j["Picture"];
+
+		}
 		#endregion
 
 		#region Fields/Properties
