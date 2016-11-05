@@ -38,35 +38,49 @@ Home.SearchButtonClick = function() {
 		data.length;
 		if (data.length > 0) {
 			for (var i = 0; i < data.length; i++) {
-				 
-				//var base64 = b64EncodeUnicode(data[i].Picture);
+				//Convert to string then base64 
 				var base64 = btoa(uint8ToString(data[i].Picture));
-				//var base64 = btoa(data[i].Picture);
-				//var base64 = data[i].Picture;
 				var imgSrc = 'data:image/jpg;base64,' + base64;
-
+				//Format Address
+				var address = data[i].Address;
+				address = address.replace(/:/g, "<br/>");
+				//Format interests
+				var interests = data[i].Interests;
+				interests = interests.replace(/,/g, ", ");
 				var personCardTemplate = [
-				'<div id="PersonCardDiv" style="border: solid 2px #E0E0E0; margin: 8px; padding:5px; width: 420px;height:420px;float:left">',
-				'<h2 align="center">',
-				data[i].FirstName + " " + data[i].LastName + ", " + data[i].Age,
-				'</h2>',
-				'<div class="info" id="contactInfo" style="align-content:space-between;margin:5px"><table cellpadding="5" align="center"><tr valign ="center">',
-				'<td>',
-				data[i].Address,
-				'</td>',
-				'<td>',
-				'<td>',
-				data[i].Email,
-				'</td>',
-				'</tr></table></div>',
-				'<div class ="info" id="otherInfo" style="align-content:space-between;margin:5px"><table cellpadding="5" align="center"><tr>',
-				'<h4>Interests:</h4>',
-				'<td>',
-				data[i].Interests,
-				'</td>',
-				'<td><img id="personPic" width="196" src="' + imgSrc + '" style="border:solid 2px grey;margin: 2px"/></td>',
-				'</td></tr></table></div></div>',
+				'<div id="PersonCardDiv" style="border: solid 2px #E0E0E0; margin: 8px; padding:5px;width:auto;height:auto;float:left">',
+					'<h2 align="center">',
+					data[i].FirstName + " " + data[i].LastName + ", " + data[i].Age,
+					'</h2>',
+					'<div class="info" id="contactInfo" style="align-content:space-between;margin:5px">',
+						'<table cellpadding="10" align="center">',
+						'<tr valign ="center">',
+						'<td>',
+						address,
+						'</td>',
+						'<td>',
+						data[i].PhoneNumber,
+						'</td>',
+						'<td>',
+						data[i].Email,
+						'</td>',
+						'</tr>',
+						'</table>',
+					'</div>',
+					'<div class ="info" id="otherInfo" style="align-content:space-between;margin:5px;width:inherit">',
+						'<table cellpadding="5" align="center" style="width:100%">',
+						'<tr>',
+						'<td valign="top" style="width:200px" align="center">',
+						'<h4>Interests:</h4>',
+						interests,
+						'</td>',
+						'<td align="right">',
+						'<img id="personPic" width="196" src="' + imgSrc + '" style="border:solid 2px grey;margin: 2px"/></td>',
+						'</td></tr></table>',
+					'</div>',
+				'</div>',
 				].join("\n");
+
 				$("#results").append(personCardTemplate);
 				//$("#results").append(imgSrc);
 			}

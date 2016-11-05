@@ -1,6 +1,6 @@
 ﻿@model TakeHomeTest.Models.Person
 
-<div id="PersonCardDiv" style="border: solid 2px #E0E0E0; margin: 8px; padding:5px; width: 420px;height:420px;float:left">
+<div id="PersonCardDiv" style="border: solid 2px #E0E0E0; margin: 8px; padding:5px; width:auto;height:auto;float:left">
 	<h2 align="center">
 		@{
 			var personHeader = string.Format("{0} {1}, {2}", Model.FirstName, Model.LastName, Model.Age);
@@ -27,25 +27,25 @@
 			</tr>
 		</table>
 	</div>
-	<div class ="info" id="otherInfo" style="align-content:space-between;margin:5px">
-		<table cellpadding="5" align="center">
-			<tr>
-				<td valign="top">
+	<div class ="info" id="otherInfo" style="align-content:space-between;margin:5px;width:inherit">
+		<table cellpadding="5" style="width:100%">
+			<tr style="width:100%">
+				<td valign="top" style="width:200px" align="center">
 					<h4>Interests:</h4>
 					@{
 						var interests = Model.Interests.Replace(",", ", ");
 					}
 					@Html.DisplayFor(model => interests)
 				</td>
-				<td>
+				<td align="right">
 					@{
 						var base64 = Convert.ToBase64String(Model.Picture);
 						var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
 					}
-					<img id="personPic" width="196" src="@imgSrc" style="border:solid 2px grey;margin: 2px"/>
+					<img id="personPic" width="196" src="@imgSrc" style="border:solid 2px grey;margin: 2px" />
 				</td>
 			</tr>
 		</table>
 	</div>
 </div>
-@imgSrc
+
