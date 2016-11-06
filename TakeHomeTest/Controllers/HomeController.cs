@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -17,18 +18,15 @@ namespace TakeHomeTest.Controllers {
 
 		#region Pages
 		public ActionResult About() {
-			ViewBag.Message = "My application description page.";
-
 			return View();
 		}
 
 		public ActionResult Contact() {
-			ViewBag.Message = "My contact page.";
-
+			ViewBag.Name = "Taylor Sorensen";
 			return View();
 		}
 
-		public JsonResult GetData(string name) {
+		public JsonResult SearchNames(string name) {
 			var persons = _db.People.Where(p => p.FirstName.Contains(name) || p.LastName.Contains(name)).ToArray();
 			JsonResult result = new JsonResult() { MaxJsonLength = Int32.MaxValue };
 			result.Data = new JavaScriptSerializer() { MaxJsonLength = Int32.MaxValue }.Serialize(persons);
@@ -36,6 +34,14 @@ namespace TakeHomeTest.Controllers {
 			return result;
 			//return Json(persons, JsonRequestBehavior.AllowGet);
 		}
+
+		//public async void SearchNamesAsync() {
+		//	await SearchNamesTask(); 
+		//}
+
+		//public async Task SearchNamesTask() {
+
+		//}
 
 		public JsonResult GetSomething() {
 			string result = "Got Something";

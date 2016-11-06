@@ -1,41 +1,33 @@
 ﻿var Home = {}
 
-var personCardTemplate = [
-	'<div id="PersonCardDiv" style="border: solid 2px #E0E0E0; margin: 8px; padding:5px; width: 420px;height:420px;float:left">',
-	'<h2 align="center">{{personHeader}}</h2>',
-	'<div class="info" id="contactInfo" style="align-content:space-between;margin:5px"><table cellpadding="5" align="center"><tr valign ="center">',
-	'<td>{{Address}}</td>',
-	'<td>{{PhoneNumber}}</td>',
-	'<td>{{Email}}</td>',
-	'</tr></table></div>',
-	'<div class ="info" id="otherInfo" style="align-content:space-between;margin:5px"><table cellpadding="5" align="center"><tr>',
-	'<h4>Interests:</h4>',
-	'<td>{{Interests}}</td>',
-	'<td><img id="personPic" width="196" src="{{Picture}}" style="border:solid 2px grey;margin: 2px"/></td>',
-	'</td></tr></table></div></div>',
-].join("\n");
+var blockMessage = '<div class="submit-progress hidden"><label>Please wait while loading results.</label>;</div>';
+var blockstyle = '{position:fixed;height:6em;padding-top:2.5em;z-index:1;width:20em;margin:auto;padding-left:2.1em;background-color:black;color:white;}';
 
+Home.SearchButtonClick = function () {
 
-
-Home.SearchButtonClick = function() {
 	var name = $("#searchCriteria").val();
 	if (name) {
 		//alert("name is valid: " + name);
+		$("#results").html("");
+		//$("#results").prop("disabled", true)
 		$.ajax({
 			type: "GET",
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			data: name,
-			url: "/Home/GetData?name="+name,
+			url: "/Home/SearchNames?name=" + name,
 			success: OnSuccess,
 			error: OnError
 		});
+		$("#returnCountLabel").html("");
+		DisplayProgressMessage(this, "Loading Results...")
 	}
 
 	function OnSuccess(data) {
-		$("#results").html("");
 		data = JSON.parse(data);
-		data.length;
+		$("#results").html("");
+		$("#returnCountLabel").html("Found " + data.length + " Matches");
+
 		if (data.length > 0) {
 			for (var i = 0; i < data.length; i++) {
 				//Convert to string then base64 
@@ -82,12 +74,12 @@ Home.SearchButtonClick = function() {
 				].join("\n");
 
 				$("#results").append(personCardTemplate);
-				//$("#results").append(imgSrc);
 			}
 		}
 		else {
-			$("#results").html("No Results");
+			$("#returnCountLabel").html("No Results");
 		}
+		$("#searchButton").prop("disabled", false).text("Search");
 	}
 
 	function uint8ToString(buf) {
@@ -104,36 +96,9 @@ Home.SearchButtonClick = function() {
 	}
 };
 
-Home.TestFunc = function () {
-	var name = $("#searchCriteria").val();
-	if (name) {
-		alert("Doiing the other");
-
-		$.post("/Home/GetData", name, OnSuccess);
-	}
-	function OnSuccess(data) {
-		$("#results").html(data);
-	}
-	function OnError(data) {
-		alert("ERROR");
-		$("#results").html("No Results");
-	}
-};
-
-Home.CreateButtonClick = function () {
-	var person = { FirstName: "Me", LastName: "Mine" }
-	$.ajax({
-		type: "POST",
-		contentType: "application/json; charset=utf-8",
-		data: "{person:" + JSON.stringify(person) + "}",
-		url: "/Home/GetData",
-		success: function (data) {
-			alert("Person Name: " + data.FirstName + " " + data.LastName);
-		},
-		error: function (result) {
-			alert("No Results");
-		}
-	})
+function DisplayProgressMessage(ctl, msg) {
+	$(ctl).prop("disabled", true).text(msg);
+	$(".submit-progress").remove("hidden");
 };
 
 $(document).ready(function () {
