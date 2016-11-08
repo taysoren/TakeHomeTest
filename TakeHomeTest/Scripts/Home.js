@@ -9,7 +9,6 @@ Home.SearchButtonClick = function () {
 	if (name) {
 		//alert("name is valid: " + name);
 		$("#results").html("");
-		//$("#results").prop("disabled", true)
 		$.ajax({
 			type: "GET",
 			contentType: "application/json; charset=utf-8",
@@ -39,6 +38,7 @@ Home.SearchButtonClick = function () {
 				//Format interests
 				var interests = data[i].Interests;
 				interests = interests.replace(/,/g, ", ");
+				//The Template we use to display each result
 				var personCardTemplate = [
 				'<div id="PersonCardDiv" style="border: solid 2px #E0E0E0; margin: 8px; padding:5px;width:auto;height:auto;float:left">',
 					'<h2 align="center">',
