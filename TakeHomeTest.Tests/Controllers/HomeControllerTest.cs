@@ -29,7 +29,7 @@ namespace TakeHomeTest.Tests.Controllers {
 
 			// Act
 			ViewResult result = controller.About() as ViewResult;
-
+			string message = result.ViewBag.Message;
 			// Assert
 			Assert.AreEqual("Your application description page.", result.ViewBag.Message);
 		}

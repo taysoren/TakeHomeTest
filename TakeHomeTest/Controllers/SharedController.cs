@@ -136,18 +136,6 @@ namespace TakeHomeTest.Controllers
 				return null;
 			}
 		}
-
-		public string HittingActionTest()
-		{
-			if (ModelState.IsValid)
-			{
-				return "Ya dun hut meh";
-			}
-			else
-			{
-				return "Model is invalid";
-			}
-		}
 		#endregion
 	}
 }

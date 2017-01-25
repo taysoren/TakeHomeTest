@@ -18,6 +18,7 @@ namespace TakeHomeTest.Controllers {
 
 		#region Pages
 		public ActionResult About() {
+			ViewBag.Message = "Your application description page.";
 			return View();
 		}
 
@@ -32,16 +33,7 @@ namespace TakeHomeTest.Controllers {
 			result.Data = new JavaScriptSerializer() { MaxJsonLength = Int32.MaxValue }.Serialize(persons);
 			result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
 			return result;
-			//return Json(persons, JsonRequestBehavior.AllowGet);
 		}
-
-		//public async void SearchNamesAsync() {
-		//	await SearchNamesTask(); 
-		//}
-
-		//public async Task SearchNamesTask() {
-
-		//}
 
 		public JsonResult GetSomething() {
 			string result = "Got Something";
