@@ -17,11 +17,6 @@ namespace TakeHomeTest.Controllers {
 		#endregion
 
 		#region Pages
-		public ActionResult About() {
-			ViewBag.Message = "Your application description page.";
-			return View();
-		}
-
 		public ActionResult Contact() {
 			ViewBag.Name = "Taylor Sorensen";
 			return View();

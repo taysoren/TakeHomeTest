@@ -3,7 +3,7 @@
 <div id="PersonCardDiv" style="border: solid 2px #E0E0E0; margin: 8px; padding:5px; width:auto;height:auto;float:left">
 	<h2 align="center">
 		@{
-			var personHeader = string.Format("{0} {1}, {2}", Model.FirstName, Model.LastName, Model.Age);
+			var personHeader = string.Format("{0} {1}", Model.FirstName, Model.LastName);
 		}
 		@Html.DisplayFor(model => personHeader)
 	</h2>
@@ -21,22 +21,12 @@
 				<td>
 					@Html.DisplayFor(model => model.PhoneNumber)
 				</td>
-				<td>
-					@Html.DisplayFor(model => model.Email)
-				</td>
 			</tr>
 		</table>
 	</div>
 	<div class ="info" id="otherInfo" style="align-content:space-between;margin:5px;width:inherit">
 		<table cellpadding="5" style="width:100%">
 			<tr style="width:100%">
-				<td valign="top" style="width:200px" align="center">
-					<h4>Interests:</h4>
-					@{
-						var interests = Model.Interests.Replace(",", ", ");
-					}
-					@Html.DisplayFor(model => interests)
-				</td>
 				<td align="right">
 					@{
 						var base64 = Convert.ToBase64String(Model.Picture);

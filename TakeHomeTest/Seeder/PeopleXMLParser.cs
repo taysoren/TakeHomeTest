@@ -26,10 +26,8 @@ namespace TakeHomeTest.Seeder {
 						PersonID = i++,
 						FirstName = p.Element("FirstName").Value,
 						LastName = p.Element("LastName").Value,
-						Age = int.Parse(p.Element("Age").Value),
 						Address = string.Format("{0}:{1}, {2} {3}", p.Element("Address").Value, p.Element("City").Value, p.Element("State").Value, p.Element("Zip").Value),
 						PhoneNumber = p.Element("PhoneNumber").Value,
-						Email = p.Element("Email").Value,
 					}).ToList();
 
 				People people = new People();

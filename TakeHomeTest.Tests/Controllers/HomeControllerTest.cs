@@ -23,18 +23,6 @@ namespace TakeHomeTest.Tests.Controllers {
 		}
 
 		[TestMethod]
-		public void About() {
-			// Arrange
-			HomeController controller = new HomeController();
-
-			// Act
-			ViewResult result = controller.About() as ViewResult;
-			string message = result.ViewBag.Message;
-			// Assert
-			Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-		}
-
-		[TestMethod]
 		public void Contact() {
 			// Arrange
 			HomeController controller = new HomeController();

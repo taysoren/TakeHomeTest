@@ -14,11 +14,9 @@ namespace TakeHomeTest.Migrations
                         PersonID = c.Int(nullable: false, identity: true),
                         FirstName = c.String(),
                         LastName = c.String(),
-                        Age = c.Int(nullable: false),
                         Address = c.String(),
+                        UserName = c.String(),
                         PhoneNumber = c.String(),
-                        Email = c.String(),
-                        Interests = c.String(),
                         Picture = c.Binary(),
                     })
                 .PrimaryKey(t => t.PersonID);

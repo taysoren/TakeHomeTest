@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 
 namespace TakeHomeTest.Models {
@@ -9,19 +11,17 @@ namespace TakeHomeTest.Models {
 		#region ctor
 		public Person() { }
 
-		public Person(string json) {
-			JObject j = JObject.Parse(json);
-			//JToken jid = j["PersonID"];
-			PersonID = (int)j["PersonID"];
-			FirstName = (string)j["FirstName"];
-			LastName = (string)j["LastName"];
-			Age = (int)j["Age"];
-			Address = (string)j["Address"];
-			PhoneNumber = (string)j["PhoneNumber"];
-			Email = (string)j["Email"];
-			Interests = (string)j["Interests"];
-			Picture = (byte[])j["Picture"];
-
+		public Person(int id, JToken person) {
+			PersonID = id;
+			//person = person[0];
+			FirstName = (string)person["name"]["first"];
+			LastName = (string)person["name"]["last"];
+			UserName = (string)person["login"]["username"];
+			Address = string.Format("{0}:{1}, {2} {3}",(string)person["location"]["street"],(string)person["location"]["city"],(string)person["location"]["state"],(string)person["location"]["postcode"]);
+			PhoneNumber = (string)person["phone"];
+			using(WebClient client = new WebClient()) {
+				Picture = client.DownloadData((string)person["picture"]["medium"]);
+			}
 		}
 		#endregion
 
@@ -40,17 +40,18 @@ namespace TakeHomeTest.Models {
 			get { return _LastName; }
 			set { _LastName = value; }
 		}
-		private int _age;
 
-		public int Age {
-			get { return _age; }
-			set { _age = value; }
-		}
 		private string _address;
 
 		public string Address {
 			get { return _address; }
 			set { _address = value; }
+		}
+		private string _userName;
+
+		public string UserName {
+			get { return _userName; }
+			set { _userName = value; }
 		}
 		private string _phoneNumber;
 
@@ -58,18 +59,7 @@ namespace TakeHomeTest.Models {
 			get { return _phoneNumber; }
 			set { _phoneNumber = value; }
 		}
-		private string _email;
-
-		public string Email {
-			get { return _email; }
-			set { _email = value; }
-		}
-		private string _interests;
-
-		public string Interests {
-			get { return _interests; }
-			set { _interests = value; }
-		}
+		
 		private byte[] _picture;
 
 		public byte[] Picture {

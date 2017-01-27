@@ -57,7 +57,7 @@ namespace TakeHomeTest.Seeder {
 
 		public static void GiveRandomInterests(Person person, int count, int seed) {
 			string[] personInterests = GenerateRandomInterests(count);
-			person.Interests = string.Join(",", personInterests);
+			//person.Interests = string.Join(",", personInterests);
 		}
 
 		public static string[] GenerateRandomInterests(int desiredCount) {

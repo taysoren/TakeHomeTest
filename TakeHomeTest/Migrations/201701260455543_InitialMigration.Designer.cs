@@ -13,7 +13,7 @@ namespace TakeHomeTest.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201611021208531_InitialMigration"; }
+            get { return "201701260455543_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source
