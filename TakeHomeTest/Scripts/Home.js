@@ -27,7 +27,7 @@ Home.OnSearchSuccess = function (data) {
 				'<div class="card-header">',
 					'<h3>', jsonDataItem.FirstName + " " + jsonDataItem.LastName, '</h3>',
 					'<div class="card-header-controls">',
-						'<i class="material-icons">&#xE872;</i>',
+						'<i class="material-icons" onclick="Home.DeleteButtonClick('+jsonDataItem.PersonID+')">&#xE872;</i>',
 					'</div>',
 				'</div>',
 				'<div class="card-body">',
@@ -60,27 +60,25 @@ Home.OnSearchSuccess = function (data) {
 	$("#searchButton").prop("disabled", false).text("Search");
 };
 
-Home.RunAjaxSerch = function () {
+Home.RunAjaxSearch = function (name) {
 	function OnError(data) {
 		searchReturned = true;
 		alert("ERROR");
 		$("#results").html("No Results");
 	}
 
-	var name = $("#searchCriteria").val();
-	if (name) {
-		$("#results").html("");
-		$.ajax({
-			type: "GET",
-			contentType: "application/json; charset=utf-8",
-			dataType: "json",
-			data: name,
-			url: "/Home/SearchNames?name=" + name,
-			success: Home.OnSearchSuccess,
-			error: OnError
-		});
-		$("#returnCountLabel").html("");
-	}
+	$("#results").html("");
+	$.ajax({
+		type: "GET",
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		data: name,
+		url: "/Home/SearchNames?name=" + name,
+		success: Home.OnSearchSuccess,
+		error: OnError
+	});
+	$("#returnCountLabel").html("");
+
 };
 
 Home.SlowSearchButtonClick = function () {
@@ -97,11 +95,11 @@ Home.SearchButtonClick = function (delayed) {
 	if (name) {
 		if (delayed) {
 			setTimeout(function () {
-				Home.RunAjaxSerch();
+				Home.RunAjaxSearch(name);
 			}, 2000);
 		}
 		else {
-			Home.RunAjaxSerch();
+			Home.RunAjaxSearch(name);
 		}
 	}
 	else {
@@ -118,14 +116,21 @@ Home.SearchButtonClick = function (delayed) {
 };
 
 Home.DeleteButtonClick = function (id) {
-	$.ajax({
-		url: "/Home/Delete?id=" + id,
-		data:id,
-		type: 'DELETE',
-		success: function (result) {
-			// Do something with the result
-		}
-	});
+	alert("Delete Implementation Incomplete");
+	return;
+	if (window.confirm("Are you sure you want to delete this entry")) {
+		$.ajax({
+			url: "/Home/Delete?id=" + id,
+			data: id,
+			type: 'DELETE',
+			success: function (result) {
+				alert("Delete Successful");
+			},
+			error: function (result) {
+				alert("Delete Unsuccessful");
+			}
+		});
+	}
 };
 
 function DisplayProgressMessage(ctl, msg) {

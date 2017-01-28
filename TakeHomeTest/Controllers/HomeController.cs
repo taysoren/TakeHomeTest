@@ -23,6 +23,11 @@ namespace TakeHomeTest.Controllers {
 		}
 
 		public JsonResult SearchNames(string name) {
+
+			if(System.Diagnostics.Debugger.IsAttached == false) {
+				System.Diagnostics.Debugger.Launch();
+			}
+
 			var persons = new Person[0];
 			if(name.Equals("[All]")) {
 				persons = _db.People.ToArray();
@@ -88,6 +93,7 @@ namespace TakeHomeTest.Controllers {
 		}
 
 		// GET: Home/Delete/5
+		[HttpDelete]
 		public ActionResult Delete(int id) {
 			return View();
 		}

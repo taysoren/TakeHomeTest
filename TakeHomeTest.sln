@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeHomeTest", "TakeHomeTest\TakeHomeTest.csproj", "{FEAF1549-ED72-49E9-863F-AA38E32E8B7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeHomeTest.Tests", "TakeHomeTest.Tests\TakeHomeTest.Tests.csproj", "{F9B79438-186D-4400-829D-7D373A1E6E2E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC976087-1D17-4456-BBBE-F3020BAFFA4E}"
 	ProjectSection(SolutionItems) = preProject
 		Grant.sql = Grant.sql
@@ -22,11 +20,6 @@ Global
 		{FEAF1549-ED72-49E9-863F-AA38E32E8B7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEAF1549-ED72-49E9-863F-AA38E32E8B7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEAF1549-ED72-49E9-863F-AA38E32E8B7E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F9B79438-186D-4400-829D-7D373A1E6E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9B79438-186D-4400-829D-7D373A1E6E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9B79438-186D-4400-829D-7D373A1E6E2E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{F9B79438-186D-4400-829D-7D373A1E6E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9B79438-186D-4400-829D-7D373A1E6E2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
