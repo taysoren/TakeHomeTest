@@ -23,7 +23,7 @@ namespace TakeHomeTest.Migrations {
 				System.Diagnostics.Debugger.Launch();
 			}
 			People people = new People();
-			int seedCount = new Random().Next(50, 100);
+			int seedCount = new Random().Next(150, 200);
 
 			using(WebClient wc = new WebClient()) {
 				var json = wc.DownloadString("http://api.randomuser.me/?results=" + seedCount);
