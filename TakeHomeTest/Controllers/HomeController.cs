@@ -23,7 +23,13 @@ namespace TakeHomeTest.Controllers {
 		}
 
 		public JsonResult SearchNames(string name) {
-			var persons = _db.People.Where(p => p.FirstName.Contains(name) || p.LastName.Contains(name)).ToArray();
+			var persons = new Person[0];
+			if(name.Equals("[All]")) {
+				persons = _db.People.ToArray();
+			}
+			else {
+				persons = _db.People.Where(p => p.FirstName.Contains(name) || p.LastName.Contains(name)).ToArray();
+			}
 			JsonResult result = new JsonResult() { MaxJsonLength = Int32.MaxValue };
 			result.Data = new JavaScriptSerializer() { MaxJsonLength = Int32.MaxValue }.Serialize(persons);
 			result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;

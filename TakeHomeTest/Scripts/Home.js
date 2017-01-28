@@ -2,58 +2,16 @@
 
 var blockMessage = '<div class="submit-progress hidden"><label>Please wait while loading results.</label>;</div>';
 var blockstyle = '{position:fixed;height:6em;padding-top:2.5em;z-index:1;width:20em;margin:auto;padding-left:2.1em;background-color:black;color:white;}';
+var searchReturned = false;
 
-Home.SearchButtonClick = function () {
-
-	var name = $("#searchCriteria").val();
-	
-	if (name) {
-		//alert("name is valid: " + name);
-		$("#results").html("");
-		$.ajax({
-			type: "GET",
-			contentType: "application/json; charset=utf-8", 
-			dataType: "json",
-			data: name,
-			url: "/Home/SearchNames?name=" + name,
-			success: OnSuccess,
-			error: OnError
-		});
-		$("#returnCountLabel").html("");
-		var delay = 500;
-		setTimeout(function () {
-			DisplayProgressMessage(this, "Loading Results...")
-		}, delay);
-	}
-
-	function OnSuccess(data) {
-		data = JSON.parse(data);
-		$("#results").html("");
-		$("#returnCountLabel").html("Found " + data.length + " Matches");
-		if (data.length > 0) {
-			for (var i = 0; i < data.length; i++) {
-				//The Template we use to display each result
-				var personCardTemplate = CreatePersonCard(data[i]);
-				$("#results").append(personCardTemplate);
-			}
-		}
-		else {
-			$("#returnCountLabel").html("No Results");
-		}
-		$("#searchButton").prop("disabled", false).text("Search");
-	}
-
+Home.OnSearchSuccess = function (data) {
+	searchReturned = true;
 	function uint8ToString(buf) {
 		var i, length, out = '';
 		for (i = 0, length = buf.length; i < length; i += 1) {
 			out += String.fromCharCode(buf[i]);
 		}
 		return out;
-	}
-
-	function OnError(data) {
-		alert("ERROR");
-		$("#results").html("No Results");
 	}
 
 	function CreatePersonCard(jsonDataItem) {
@@ -86,11 +44,83 @@ Home.SearchButtonClick = function () {
 		return personCardTemplate;
 	}
 
+	data = JSON.parse(data);
+	$("#results").html("");
+	$("#returnCountLabel").html("Found " + data.length + " Matches");
+	if (data.length > 0) {
+		for (var i = 0; i < data.length; i++) {
+			//The Template we use to display each result
+			var personCardTemplate = CreatePersonCard(data[i]);
+			$("#results").append(personCardTemplate);
+		}
+	}
+	else {
+		$("#returnCountLabel").html("No Results");
+	}
+	$("#searchButton").prop("disabled", false).text("Search");
+};
+
+Home.RunAjaxSerch = function () {
+	function OnError(data) {
+		searchReturned = true;
+		alert("ERROR");
+		$("#results").html("No Results");
+	}
+
+	var name = $("#searchCriteria").val();
+	if (name) {
+		$("#results").html("");
+		$.ajax({
+			type: "GET",
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			data: name,
+			url: "/Home/SearchNames?name=" + name,
+			success: Home.OnSearchSuccess,
+			error: OnError
+		});
+		$("#returnCountLabel").html("");
+	}
+};
+
+Home.SlowSearchButtonClick = function () {
+	Home.SearchButtonClick(true);
+};
+
+Home.NormalSearchButtonClick = function () {
+	Home.SearchButtonClick(false);
+};
+Home.SearchButtonClick = function (delayed) {
+	searchReturned = false;
+	$("#returnCountLabel").html("");
+	var name = $("#searchCriteria").val();
+	if (name) {
+		if (delayed) {
+			setTimeout(function () {
+				Home.RunAjaxSerch();
+			}, 2000);
+		}
+		else {
+			Home.RunAjaxSerch();
+		}
+	}
+	else {
+		$("#results").html('Input cannot be blank, type [All] to get all entries.');
+		searchReturned = true;
+	}
+	var delay = 200;
+	setTimeout(function () {
+		if (!searchReturned) {
+			DisplayProgressMessage(this, "Loading Results...")
+		}
+	}, delay);
+
 };
 
 Home.DeleteButtonClick = function (id) {
 	$.ajax({
-		url: "/Home/Delete?name=" + id,
+		url: "/Home/Delete?id=" + id,
+		data:id,
 		type: 'DELETE',
 		success: function (result) {
 			// Do something with the result
@@ -99,8 +129,9 @@ Home.DeleteButtonClick = function (id) {
 };
 
 function DisplayProgressMessage(ctl, msg) {
-	$(ctl).prop("disabled", true).text(msg);
-	$(".submit-progress").remove("hidden");
+	//$(ctl).prop("disabled", true).text(msg);
+	//$(".submit-progress").remove("hidden");
+	$("#results").html('<img src="http://www.bba-reman.com/images/fbloader.gif"/>');
 };
 
 function DisplayWaitingMessage(ctl, msg) {
@@ -109,10 +140,9 @@ function DisplayWaitingMessage(ctl, msg) {
 };
 
 $(document).ready(function () {
-	$(".searchButton").click(Home.SearchButtonClick);
-	$(".material-icons").add('click', function(){
-		Home.DeleteButtonClick(0);
-	});
+	$("#searchButton").click(Home.NormalSearchButtonClick);
+	$("#slowSearchButton").click(Home.SlowSearchButtonClick);
+	$(".material-icons").click(Home.DeleteButtonClick);
 	$(".createButton").click(Home.CreateButtonClick);
 });
 

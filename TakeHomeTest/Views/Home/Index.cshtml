@@ -23,19 +23,21 @@
 	<div id="searchArea">
 		<h4>Search Database by Name</h4>
 		<button class="searchButton" id="searchButton">Search</button>
+		<button class="searchButton" id="slowSearchButton">Search w/Delay</button>
 		<input id="searchCriteria" />
 		<label id="returnCountLabel" style="color:darkgrey"></label>
+	</div>
+	<div class="submit-progress hidden">
+		<label>Please wait while loading results.</label>
 	</div>
 	<div class="float-container clearfix">
 		<div id="results">
 			Results Will Show Here
 		</div>
 	</div>
-	<div class="submit-progress hidden">
-		<label>Please wait while loading results.</label>
-	</div>
+
 	@*@Html.Partial("_peopleView", Model.ToArray())*@
-	@*@Html.Partial("_personCard", Model.ToArray()[1])*@
+	@*@Html.Partial("_personCard", Model.ToArray()[1])
 	<div class="float-container clearfix">
 		<div class="grid-33">
 			<div class="card">
@@ -60,102 +62,102 @@
 				</div>
 
 			</div>
-		</div>
+		</div>*@
 		@*<div class="grid-33">
-			<div class="card">
+		<div class="card">
 
-				<div class="card-header">
-					<h3>[PERSON NAME]</h3>
+			<div class="card-header">
+				<h3>[PERSON NAME]</h3>
 
-					<div class="card-header-controls">
-						<i class="material-icons">&#xE872;</i>
-					</div>
+				<div class="card-header-controls">
+					<i class="material-icons">&#xE872;</i>
 				</div>
-
-				<div class="card-body">
-					<img src="http://placehold.it/350x350" alt="" title="" />
-
-					<div class="card-content">
-						<p>[address]</p>
-						<p>[address]</p>
-						<p>[username]</p>
-						<p>[phone number]</p>
-					</div>
-				</div>
-
 			</div>
+
+			<div class="card-body">
+				<img src="http://placehold.it/350x350" alt="" title="" />
+
+				<div class="card-content">
+					<p>[address]</p>
+					<p>[address]</p>
+					<p>[username]</p>
+					<p>[phone number]</p>
+				</div>
+			</div>
+
 		</div>
-		<div class="grid-33">
-			<div class="card">
+	</div>
+	<div class="grid-33">
+		<div class="card">
 
-				<div class="card-header">
-					<h3>[PERSON NAME]</h3>
+			<div class="card-header">
+				<h3>[PERSON NAME]</h3>
 
-					<div class="card-header-controls">
-						<i class="material-icons">&#xE872;</i>
-					</div>
+				<div class="card-header-controls">
+					<i class="material-icons">&#xE872;</i>
 				</div>
-
-				<div class="card-body">
-					<img src="http://placehold.it/350x350" alt="" title="" />
-
-					<div class="card-content">
-						<p>[address]</p>
-						<p>[address]</p>
-						<p>[username]</p>
-						<p>[phone number]</p>
-					</div>
-				</div>
-
 			</div>
+
+			<div class="card-body">
+				<img src="http://placehold.it/350x350" alt="" title="" />
+
+				<div class="card-content">
+					<p>[address]</p>
+					<p>[address]</p>
+					<p>[username]</p>
+					<p>[phone number]</p>
+				</div>
+			</div>
+
 		</div>
-		<div class="grid-33">
-			<div class="card">
+	</div>
+	<div class="grid-33">
+		<div class="card">
 
-				<div class="card-header">
-					<h3>[PERSON NAME]</h3>
+			<div class="card-header">
+				<h3>[PERSON NAME]</h3>
 
-					<div class="card-header-controls">
-						<i class="material-icons">&#xE872;</i>
-					</div>
+				<div class="card-header-controls">
+					<i class="material-icons">&#xE872;</i>
 				</div>
-
-				<div class="card-body">
-					<img src="http://placehold.it/350x350" alt="" title="" />
-
-					<div class="card-content">
-						<p>[address]</p>
-						<p>[address]</p>
-						<p>[username]</p>
-						<p>[phone number]</p>
-					</div>
-				</div>
-
 			</div>
+
+			<div class="card-body">
+				<img src="http://placehold.it/350x350" alt="" title="" />
+
+				<div class="card-content">
+					<p>[address]</p>
+					<p>[address]</p>
+					<p>[username]</p>
+					<p>[phone number]</p>
+				</div>
+			</div>
+
 		</div>
-		<div class="grid-33">
-			<div class="card">
+	</div>
+	<div class="grid-33">
+		<div class="card">
 
-				<div class="card-header">
-					<h3>[PERSON NAME]</h3>
+			<div class="card-header">
+				<h3>[PERSON NAME]</h3>
 
-					<div class="card-header-controls">
-						<i class="material-icons">&#xE872;</i>
-					</div>
+				<div class="card-header-controls">
+					<i class="material-icons">&#xE872;</i>
 				</div>
-
-				<div class="card-body">
-					<img src="http://placehold.it/350x350" alt="" title="" />
-
-					<div class="card-content">
-						<p>[address]</p>
-						<p>[address]</p>
-						<p>[username]</p>
-						<p>[phone number]</p>
-					</div>
-				</div>
-
 			</div>
+
+			<div class="card-body">
+				<img src="http://placehold.it/350x350" alt="" title="" />
+
+				<div class="card-content">
+					<p>[address]</p>
+					<p>[address]</p>
+					<p>[username]</p>
+					<p>[phone number]</p>
+				</div>
+			</div>
+
 		</div>
 	</div>*@
+	</div>
 </div>

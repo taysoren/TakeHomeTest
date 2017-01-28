@@ -149,6 +149,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="JSTests\HomeTests.js" />
     <Content Include="JSTests\jasmine.js" />
+    <Content Include="Resources\ajax-loader.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\LocalHost.pubxml" />
